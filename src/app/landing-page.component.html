@@ -27,8 +27,7 @@
       <div class="button">
         <a 
           [href]="getDeepLink()"
-          class="btn start-btn"
-          (click)="handleAction()">
+          class="btn start-btn" >
           {{ action === 'create-observation' ? 'Create Observation' : 
              (action === 'take-survey' ? 'Take Survey' : 'Start Project') }}
         </a>

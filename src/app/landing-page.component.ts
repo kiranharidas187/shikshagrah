@@ -27,28 +27,30 @@ export class LandingPageComponent  implements OnInit{
     });
   }
 
-  handleAction() {
-    switch (this.action) {
-      case 'create-observation':
-        this.onCreateObservation();
-        break;
-      case 'take-survey':
-        this.onTakeSurvey();
-        break;
-      case 'project':
-        this.onStartProject();
-        break;
-      default:
-        console.error('Invalid action');
-    }
-  }
+  // handleAction() {
+  //   switch (this.action) {
+  //     case 'create-observation':
+  //       this.onCreateObservation();
+  //       break;
+  //     case 'take-survey':
+  //       this.onTakeSurvey();
+  //       break;
+  //     case 'project':
+  //       this.onStartProject();
+  //       break;
+  //     default:
+  //       console.error('Invalid action');
+  //   }
+  // }
 
   onInstallClick() {
      window.open('https://play.google.com/store/apps/details?id=org.shikshagraha.app&hl=en_IN', '_blank');
   }
 
   
-  getDeepLink(): string {
+  getDeepLink(event:any): string {
+    event.preventDefault();
+
     // Build the deep link dynamically based on the current action and projectId
     if (this.action && this.projectId) {
       return `https://shikshagraha.org/manage-learn/${this.action}/${this.projectId}`;
@@ -56,45 +58,45 @@ export class LandingPageComponent  implements OnInit{
     return '';
   }
 
-  onClickAction() {
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    const deepLink = this.getDeepLink(); 
+  // onClickAction() {
+  //   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  //   const deepLink = this.getDeepLink(); 
 
-    if (deepLink) {
-      if (isMobile) {
-        if (/Android/i.test(navigator.userAgent)) {
-          // Android deep link
-          window.location.href = deepLink;
-          setTimeout(() => {
-            window.location.href = 'https://play.google.com/store/apps/details?id=org.shikshagraha.app&hl=en_IN';
-          }, 2000);
-        } else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-          // iOS deep link
-          window.location.href = deepLink;
-          setTimeout(() => {
-            window.location.href = 'https://apps.apple.com/us/app/shikshagraha/id123456789';
-          }, 1000);
-        }
-      } else {
-        // Desktop fallback
-        alert("Please download the Shikshagraha app on your mobile device.");
-        window.open('https://play.google.com/store/apps/details?id=org.shikshagraha.app&hl=en_IN', '_blank');
-      }
-    } else {
-      console.error('Deep link could not be constructed.');
-    }
-  }
+  //   if (deepLink) {
+  //     if (isMobile) {
+  //       if (/Android/i.test(navigator.userAgent)) {
+  //         // Android deep link
+  //         window.location.href = deepLink;
+  //         setTimeout(() => {
+  //           window.location.href = 'https://play.google.com/store/apps/details?id=org.shikshagraha.app&hl=en_IN';
+  //         }, 2000);
+  //       } else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+  //         // iOS deep link
+  //         window.location.href = deepLink;
+  //         setTimeout(() => {
+  //           window.location.href = 'https://apps.apple.com/us/app/shikshagraha/id123456789';
+  //         }, 1000);
+  //       }
+  //     } else {
+  //       // Desktop fallback
+  //       alert("Please download the Shikshagraha app on your mobile device.");
+  //       window.open('https://play.google.com/store/apps/details?id=org.shikshagraha.app&hl=en_IN', '_blank');
+  //     }
+  //   } else {
+  //     console.error('Deep link could not be constructed.');
+  //   }
+  // }
 
-  onStartProject(){
-    this.onClickAction()
-  }
+  // onStartProject(){
+  //   this.onClickAction()
+  // }
 
-  onCreateObservation() {
-    this.onClickAction()
-  }
+  // onCreateObservation() {
+  //   this.onClickAction()
+  // }
 
-  onTakeSurvey() {
-    this.onClickAction()
-  }
+  // onTakeSurvey() {
+  //   this.onClickAction()
+  // }
 
 }
