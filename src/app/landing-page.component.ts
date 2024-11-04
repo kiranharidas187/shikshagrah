@@ -48,8 +48,7 @@ export class LandingPageComponent  implements OnInit{
   }
 
   
-  getDeepLink(event:any): string {
-    event.preventDefault();
+  getDeepLink(): string {
 
     // Build the deep link dynamically based on the current action and projectId
     if (this.action && this.projectId) {
