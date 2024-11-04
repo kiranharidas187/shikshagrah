@@ -51,7 +51,7 @@ export class LandingPageComponent  implements OnInit{
   getDeepLink(): string {
     // Build the deep link dynamically based on the current action and projectId
     if (this.action && this.projectId) {
-      return `org.shikshagraha.app://deeplink/manage-learn/${this.action}/${this.projectId}`;
+      return `https:shikshagraha.org/manage-learn/${this.action}/${this.projectId}`;
     }
     return '';
   }
