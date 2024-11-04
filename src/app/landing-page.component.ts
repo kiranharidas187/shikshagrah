@@ -48,13 +48,14 @@ export class LandingPageComponent  implements OnInit{
   }
 
   
-  getDeepLink(): string {
+  getDeepLink() {
+    window.open(`https://shikshagraha.org/manage-learn/${this.action}/${this.projectId}`);
 
     // Build the deep link dynamically based on the current action and projectId
-    if (this.action && this.projectId) {
-      return `https://shikshagraha.org/manage-learn/${this.action}/${this.projectId}`;
-    }
-    return '';
+    // if (this.action && this.projectId) {
+    //   return `https://shikshagraha.org/manage-learn/${this.action}/${this.projectId}`;
+    // }
+    // return '';
   }
 
   // onClickAction() {
