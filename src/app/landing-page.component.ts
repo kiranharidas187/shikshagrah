@@ -12,7 +12,7 @@ export class LandingPageComponent  implements OnInit{
 
   projectId: string | null = null;
   action: string | null = null;
-  validActions: string[] = ['create-observation', 'take-survey', 'project'];
+  validActions: string[] = ['create-observation', 'create-survey', 'create-project'];
 
   constructor(private route: ActivatedRoute,  private router: Router) {}
 
