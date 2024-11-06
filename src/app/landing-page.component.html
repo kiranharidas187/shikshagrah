@@ -21,15 +21,15 @@
         <h3>Step 2</h3>
       <p>
         {{ action === 'create-observation' ? 'Create a observation using the Shikshagraha App' : 
-           action === 'take-survey' ? 'Take the survey using the Shikshagraha App' : 
+           action === 'create-survey' ? 'Take the survey using the Shikshagraha App' : 
            'Take up improvement project using the Shikshagraha App' }}
       </p>
       <div class="button">
         <a 
           (click)="getDeepLink()"
           class="btn start-btn" >
-          {{ action === 'create-observation' ? 'Create Observation' : 
-             (action === 'take-survey' ? 'Take Survey' : 'Start Project') }}
+          {{ action === 'create-observation' ? 'Start Observation' : 
+             (action === 'create-survey' ? 'Start Survey' : 'Start Project') }}
         </a>
       </div>
       </div>
